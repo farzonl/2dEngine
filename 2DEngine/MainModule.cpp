@@ -20,12 +20,12 @@ void WINAPI Background(float r, float g, float b) {
 }
 
 void WINAPI RunLoop() {
+	Setup();
 	bool result = WindowMgr::initWindow();
 	if (!result) {
 		// TODO add failure message
 		return;
 	}
-	Setup();
 	ShowWindow(WindowMgr::getHwnd(), SW_SHOWNORMAL);
 	MSG msg;
 	msg.message = WM_NULL;

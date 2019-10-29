@@ -3,7 +3,7 @@
 #include "..\2DEngine\ManagedLayer.h"
 
 void WINAPI setup() {
-	Size(600, 800);
+	Size(800, 600);
 	Fill(1.0f, 1.0f, 1.0f);
 }
 
