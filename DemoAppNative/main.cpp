@@ -4,6 +4,8 @@
 
 void WINAPI setup() {
 	Size(800, 600);
+	Stroke(0.0f, 1.0f, 0.0f);
+	NoStroke();
 }
 
 float y = 0, ySpeed = 0;
@@ -18,7 +20,6 @@ void WINAPI draw() {
 	Background(0.0f, 0.5f, 0.5f);
 	Fill(1.0f, 0.0f, 0.0f);
 	Rect(100, 100, 50, 150);
-	Fill(0.0f, 1.0f, 0.0f);
 	Line(100, 90, 150, 90);
 	Line(90, 100, 90, 250);
 	Fill(0.0f, 0.0f, 1.0f);

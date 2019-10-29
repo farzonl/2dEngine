@@ -94,6 +94,24 @@ void WindowMgr::line(float x1, float y1, float x2, float y2) {
 	instance.graphics.drawLine(x1, y1, x2, y2);
 }
 
+void WindowMgr::stroke(float r, float g, float b) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.stroke(r, g, b); });
+		return;
+	}
+	instance.graphics.stroke(r, g, b);
+}
+
+void WindowMgr::noStroke() {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.noStroke(); });
+		return;
+	}
+	instance.graphics.noStroke();
+}
+
 void WindowMgr::quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 	auto& instance = Singleton::get();
 	if (!instance.graphicsInited) {

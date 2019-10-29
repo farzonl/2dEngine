@@ -3,6 +3,23 @@
 #include "WindowMgr.h"
 #include "ManagedLayer.h"
 
+void WINAPI NoStroke() {
+	WindowMgr::noStroke();
+}
+
+void WINAPI Stroke(float r, float g, float b) {
+	WindowMgr::stroke(r, g, b);
+}
+
+// extent is the processing word for radius
+void WINAPI Circle(float x, float y, float extent) {
+	WindowMgr::ellipse(x, y, extent, extent);
+}
+
+void WINAPI Square(float x, float y, float extent) {
+	WindowMgr::rect(x, y, extent, extent);
+}
+
 void WINAPI Rect(float x, float y, float width, float height) {
 	WindowMgr::rect(x, y, width, height);
 }

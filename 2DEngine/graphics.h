@@ -9,12 +9,17 @@ class Graphics {
 		ID2D1Factory* factory;
 		ID2D1HwndRenderTarget* renderTarget;
 		ID2D1SolidColorBrush* brush;
+		ID2D1SolidColorBrush* strokeBrush;
 		int height, width;
+		bool bStroke;
+		float strokeWeight;
 	public:
 		Graphics();
 		~Graphics();
 		int getHeight();
 		int getWidth();
+		void noStroke();
+		void stroke(float r, float g, float b);
 		bool init(HWND hwnd);
 		template<typename Functor>
 		void draw(Functor f) {

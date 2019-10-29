@@ -6,7 +6,9 @@ Graphics::Graphics() : factory(nullptr),
 					   renderTarget(nullptr), 
 					   brush(nullptr),
 					   height(0), 
-					   width(0) {}
+					   width(0),
+					   bStroke(true), 
+					   strokeWeight(3.0f) {}
 
 Graphics::~Graphics() {
 	if (factory) {
@@ -17,6 +19,9 @@ Graphics::~Graphics() {
 	}
 	if (brush) {
 		brush->Release();
+	}
+	if (strokeBrush) {
+		strokeBrush->Release();
 	}
 }
 int Graphics::getHeight() {
@@ -48,6 +53,12 @@ bool Graphics::init(HWND hwnd) {
 		return false;
 	}
 
+	hr = renderTarget->CreateSolidColorBrush(D2D1::ColorF(0, 0, 0), &strokeBrush);
+
+	if (hr != S_OK) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -59,27 +70,43 @@ void Graphics::setColor(float r, float g, float b) {
 	brush->SetColor(D2D1::ColorF(r, g, b));
 }
 
+void Graphics::noStroke() {
+	bStroke = false;
+}
+void Graphics::stroke(float r, float g, float b) {
+	bStroke = true;
+	strokeBrush->SetColor(D2D1::ColorF(r, g, b));
+}
+
 void Graphics::drawElipse(float x, float y, float width, float height) {
-	renderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(x, y), width, height), brush, 3.0f);
+	auto elipse = D2D1::Ellipse(D2D1::Point2F(x, y), width, height);
+	if (bStroke) {
+		renderTarget->DrawEllipse(elipse, strokeBrush, strokeWeight);
+	}
+	renderTarget->FillEllipse(elipse, brush);
 }
 
 void Graphics::drawRect(float x, float y, float width, float height) {
-	renderTarget->DrawRectangle(D2D1::RectF(x, y, x + width, y + height), brush, 3.0f);
+	auto rect = D2D1::RectF(x, y, x + width, y + height);
+	if (bStroke) {
+		renderTarget->DrawRectangle(rect, strokeBrush, strokeWeight);
+	}
+	renderTarget->FillRectangle(rect, brush);
 }
 
 void Graphics::drawLine(float x1, float y1, float x2, float y2) {
-	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), strokeBrush, strokeWeight);
 }
 
 void Graphics::drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3) {
-	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
-	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), brush, 3.0f);
-	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x1, y1), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), strokeBrush, strokeWeight);
+	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), strokeBrush, strokeWeight);
+	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x1, y1), strokeBrush, strokeWeight);
 }
 
 void Graphics::drawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
-	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
-	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), brush, 3.0f);
-	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x4, y4), brush, 3.0f);
-	renderTarget->DrawLine(D2D1::Point2F(x4, y4), D2D1::Point2F(x1, y1), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), strokeBrush, strokeWeight);
+	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), strokeBrush, strokeWeight);
+	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x4, y4), strokeBrush, strokeWeight);
+	renderTarget->DrawLine(D2D1::Point2F(x4, y4), D2D1::Point2F(x1, y1), strokeBrush, strokeWeight);
 }
