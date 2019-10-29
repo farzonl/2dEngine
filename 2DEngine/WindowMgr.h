@@ -16,6 +16,9 @@ public:
 	static void draw(Draw_Callback* pCallback);
 	// note make these draw functions nonblocking
 	static void ellipse(float x, float y, float width, float height); 
+	static void line(float x1, float y1, float x2, float y2);
+	static void rect(float x, float y, float width, float height);
+	static void triangle(float x1, float y1, float x2, float y2, float x3, float y3);
 	static void setColor(float r, float g, float b);
 	static void clear(float r, float g, float b);
 private:

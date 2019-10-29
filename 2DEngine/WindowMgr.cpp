@@ -67,6 +67,33 @@ void WindowMgr::ellipse(float x, float y, float width, float height) {
 	instance.graphics.drawElipse(x, y, width, height);
 }
 
+void WindowMgr::rect(float x, float y, float width, float height) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.drawRect(x, y, width, height); });
+		return;
+	}
+	instance.graphics.drawRect(x, y, width, height);
+}
+
+void WindowMgr::triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.drawTriangle(x1, y1, x2, y2, x3, y3); });
+		return;
+	}
+	instance.graphics.drawTriangle(x1, y1, x2, y2, x3, y3);
+}
+
+void WindowMgr::line(float x1, float y1, float x2, float y2) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.drawLine(x1, y1, x2, y2); });
+		return;
+	}
+	instance.graphics.drawLine(x1, y1, x2, y2);
+}
+
 void WindowMgr::setColor(float r, float g, float b) {
 	auto& instance = Singleton::get();
 	if (!instance.graphicsInited) {

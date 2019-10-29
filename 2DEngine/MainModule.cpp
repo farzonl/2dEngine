@@ -3,6 +3,18 @@
 #include "WindowMgr.h"
 #include "ManagedLayer.h"
 
+void WINAPI Rect(float x, float y, float width, float height) {
+	WindowMgr::rect(x, y, width, height);
+}
+void WINAPI Line(float x1, float y1, float x2, float y2) {
+	WindowMgr::line(x1, y1, x2, y2);
+}
+
+void WINAPI Triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+	WindowMgr::triangle(x1, y1, x2, y2, x3, y3);
+}
+
+
 void WINAPI Size(int width, int height) {
 	WindowMgr::setSize(width, height);
 }
