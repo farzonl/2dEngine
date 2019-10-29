@@ -21,6 +21,7 @@ public:
 	static void triangle(float x1, float y1, float x2, float y2, float x3, float y3);
 	static void setColor(float r, float g, float b);
 	static void clear(float r, float g, float b);
+	static void quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
 private:
 	WindowMgr() = delete;
 };

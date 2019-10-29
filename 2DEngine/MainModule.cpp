@@ -6,6 +6,11 @@
 void WINAPI Rect(float x, float y, float width, float height) {
 	WindowMgr::rect(x, y, width, height);
 }
+
+void WINAPI Quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+	WindowMgr::quad(x1, y1, x2, y2, x3, y3, x4, y4);
+}
+
 void WINAPI Line(float x1, float y1, float x2, float y2) {
 	WindowMgr::line(x1, y1, x2, y2);
 }

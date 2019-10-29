@@ -94,6 +94,15 @@ void WindowMgr::line(float x1, float y1, float x2, float y2) {
 	instance.graphics.drawLine(x1, y1, x2, y2);
 }
 
+void WindowMgr::quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.drawQuad(x1, y1, x2, y2, x3, y3, x4, y4); });
+		return;
+	}
+	instance.graphics.drawQuad(x1, y1, x2, y2, x3, y3, x4, y4);
+}
+
 void WindowMgr::setColor(float r, float g, float b) {
 	auto& instance = Singleton::get();
 	if (!instance.graphicsInited) {

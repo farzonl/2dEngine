@@ -28,6 +28,7 @@ class Graphics {
 		void drawRect(float x, float y, float width, float height);
 		void drawLine(float x1, float y1, float x2, float y2);
 		void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3);
+		void drawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
 
 };
 

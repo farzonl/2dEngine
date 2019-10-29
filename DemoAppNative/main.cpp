@@ -25,6 +25,7 @@ void WINAPI draw() {
 	Ellipse(375.0f, y, 50.0f, 50.f);
 	Fill(1.0f, 1.0f, 1.0f);
 	Triangle(30, 75, 58, 20, 86, 75);
+	Quad(138, 31, 186, 20, 169, 63, 130, 76);
 }
 
 int main() {

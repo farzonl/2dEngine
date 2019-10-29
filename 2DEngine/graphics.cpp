@@ -70,8 +70,16 @@ void Graphics::drawRect(float x, float y, float width, float height) {
 void Graphics::drawLine(float x1, float y1, float x2, float y2) {
 	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
 }
+
 void Graphics::drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3) {
 	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
 	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), brush, 3.0f);
 	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x1, y1), brush, 3.0f);
+}
+
+void Graphics::drawQuad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+	renderTarget->DrawLine(D2D1::Point2F(x1, y1), D2D1::Point2F(x2, y2), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x2, y2), D2D1::Point2F(x3, y3), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x3, y3), D2D1::Point2F(x4, y4), brush, 3.0f);
+	renderTarget->DrawLine(D2D1::Point2F(x4, y4), D2D1::Point2F(x1, y1), brush, 3.0f);
 }

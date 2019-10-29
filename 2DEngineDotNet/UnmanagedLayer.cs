@@ -9,7 +9,7 @@ namespace DotNet2DEngine
     public static class UnmanagedLayer
     {
         #region Static Members
-        public static string sUnmanagedHookPath
+        public static string sUnmanagedDLLPath
         {
             get;
             private set;
@@ -21,12 +21,12 @@ namespace DotNet2DEngine
         public static void Init()
         {
             // Get the path to the current assembly
-            sUnmanagedHookPath = Assembly.GetExecutingAssembly().CodeBase;
-            sUnmanagedHookPath = new Uri(sUnmanagedHookPath).LocalPath;
-            sUnmanagedHookPath = Path.GetDirectoryName(sUnmanagedHookPath);
+            sUnmanagedDLLPath = Assembly.GetExecutingAssembly().CodeBase;
+            sUnmanagedDLLPath = new Uri(sUnmanagedDLLPath).LocalPath;
+            sUnmanagedDLLPath = Path.GetDirectoryName(sUnmanagedDLLPath);
 
             // set the path as the first path to search for DLLs when using P/invoke
-            Kernel32.SetDllDirectory(sUnmanagedHookPath);
+            Kernel32.SetDllDirectory(sUnmanagedDLLPath);
         }
 
         #endregion
