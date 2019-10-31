@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "panel.h"
+#include "ManagedLayer.h"
 
 namespace {
 	LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wparam, LPARAM lparam) {
@@ -7,6 +8,12 @@ namespace {
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return S_OK;
+		case WM_LBUTTONDOWN:
+			int xPos = GET_X_LPARAM(lparam);
+			int yPos = GET_Y_LPARAM(lparam);
+			MousePressed(xPos, yPos);
+			return S_OK;
+
 		}
 		return DefWindowProc(hwnd, uMsg, wparam, lparam);
 	}

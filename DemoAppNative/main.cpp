@@ -8,6 +8,12 @@ void WINAPI setup() {
 	NoStroke();
 }
 
+float sqX = 0, sqY = 0;
+void WINAPI mousePressed(int mouseX, int mouseY) {
+	sqX = mouseX;
+	sqY = mouseY;
+}
+
 float y = 0, ySpeed = 0;
 
 void WINAPI draw() {
@@ -27,11 +33,12 @@ void WINAPI draw() {
 	Fill(1.0f, 1.0f, 1.0f);
 	Triangle(30, 75, 58, 20, 86, 75);
 	Quad(138, 31, 186, 20, 169, 63, 130, 76);
+	Square(sqX, sqY, 50);
 }
 
 int main() {
 	Setup_SetCallback(setup);
 	Draw_SetCallback(draw);
-
+	MousePressed_SetCallback(mousePressed);
 	RunLoop();
 }
