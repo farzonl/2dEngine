@@ -14,4 +14,8 @@ typedef void(WINAPI MousePressed_Callback)(int mouseX, int mouseY);
 void WINAPI MousePressed_SetCallback(MousePressed_Callback* pCallback);
 MousePressed_Callback MousePressed;
 
+typedef void(WINAPI KeyPressed_Callback)(char key);
+void WINAPI KeyPressed_SetCallback(KeyPressed_Callback* pCallback);
+KeyPressed_Callback KeyPressed;
+
 #endif// _MANAGED_LAYER_H_

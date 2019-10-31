@@ -8,10 +8,14 @@ namespace {
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return S_OK;
-		case WM_LBUTTONDOWN:
+		case WM_LBUTTONDOWN: {
 			int xPos = GET_X_LPARAM(lparam);
 			int yPos = GET_Y_LPARAM(lparam);
 			MousePressed(xPos, yPos);
+			return S_OK;
+		}
+		case WM_KEYDOWN:
+			KeyPressed(static_cast<char>(wparam));
 			return S_OK;
 
 		}

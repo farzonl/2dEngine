@@ -4,6 +4,7 @@
 static Draw_Callback* s_pDraw_Callback = nullptr;
 static Setup_Callback* s_pSetup_Callback = nullptr;
 static MousePressed_Callback* s_pMousePressed_Callback = nullptr;
+static KeyPressed_Callback* s_pKeyPressed_Callback = nullptr;
 
 void WINAPI Draw()
 {
@@ -39,5 +40,16 @@ void WINAPI MousePressed(int mouseX, int mouseY)
 	if (s_pMousePressed_Callback != nullptr)
 	{
 		s_pMousePressed_Callback(mouseX, mouseY);
+	}
+}
+
+void WINAPI KeyPressed_SetCallback(KeyPressed_Callback* pCallback) {
+	s_pKeyPressed_Callback = pCallback;
+}
+
+void WINAPI  KeyPressed(char key) {
+	if (s_pKeyPressed_Callback != nullptr)
+	{
+		s_pKeyPressed_Callback(key);
 	}
 }
