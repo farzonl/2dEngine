@@ -8,6 +8,7 @@
 #define sq(a) pow(a,2)
 #define random(low, high) rand() % high + low
 #define size Size
+#define noFill NoFill
 #define stroke Stroke
 #define noStroke NoStroke
 #define background Background
@@ -57,6 +58,7 @@ T** matAlloc(int COLS, int ROWS) {
 	T** arr = new T* [COLS];
 	for (int i = 0; i < COLS; ++i) {
 		arr[i] = new T[ROWS];
+		memset(arr[i], 0, ROWS*sizeof(T));
 	}
 	return arr;
 }

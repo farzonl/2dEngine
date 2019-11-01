@@ -7,7 +7,8 @@ Graphics::Graphics() : factory(nullptr),
 					   brush(nullptr),
 					   height(0), 
 					   width(0),
-					   bStroke(true), 
+					   bStroke(true),
+					   bFill(true),
 					   strokeWeight(3.0f) {}
 
 Graphics::~Graphics() {
@@ -67,12 +68,17 @@ void Graphics::clear(float r, float g, float b) {
 }
 
 void Graphics::setColor(float r, float g, float b) {
+	bFill = true;
 	brush->SetColor(D2D1::ColorF(r, g, b));
 }
 
 void Graphics::noStroke() {
 	bStroke = false;
 }
+void Graphics::noFill() {
+	bFill = false;
+}
+
 void Graphics::stroke(float r, float g, float b) {
 	bStroke = true;
 	strokeBrush->SetColor(D2D1::ColorF(r, g, b));
@@ -83,7 +89,9 @@ void Graphics::drawElipse(float x, float y, float width, float height) {
 	if (bStroke) {
 		renderTarget->DrawEllipse(elipse, strokeBrush, strokeWeight);
 	}
-	renderTarget->FillEllipse(elipse, brush);
+	if (bFill) {
+		renderTarget->FillEllipse(elipse, brush);
+	}
 }
 
 void Graphics::drawRect(float x, float y, float width, float height) {
@@ -91,7 +99,9 @@ void Graphics::drawRect(float x, float y, float width, float height) {
 	if (bStroke) {
 		renderTarget->DrawRectangle(rect, strokeBrush, strokeWeight);
 	}
-	renderTarget->FillRectangle(rect, brush);
+	if (bFill) {
+		renderTarget->FillRectangle(rect, brush);
+	}
 }
 
 void Graphics::drawLine(float x1, float y1, float x2, float y2) {

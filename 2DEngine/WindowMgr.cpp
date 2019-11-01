@@ -94,6 +94,11 @@ void WindowMgr::line(float x1, float y1, float x2, float y2) {
 	instance.graphics.drawLine(x1, y1, x2, y2);
 }
 
+void WindowMgr::noFill() {
+	auto& instance = Singleton::get();
+	instance.graphics.noFill();
+}
+
 void WindowMgr::stroke(float r, float g, float b) {
 	auto& instance = Singleton::get();
 	if (!instance.graphicsInited) {

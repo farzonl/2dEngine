@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngine", "2DEngine\2DEngine.vcxproj", "{085810E4-AB11-4DE6-8962-654FCAF6C0EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet2DEngine", "2DEngineDotNet\DotNet2DEngine.csproj", "{B0659E16-CBE5-4FBE-9F9D-44BA5824D803}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet2DEngine", "2DEngineDotNet\DotNet2DEngine.csproj", "{B0659E16-CBE5-4FBE-9F9D-44BA5824D803}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngineNativeTests", "2DEngineNativeTests\2DEngineNativeTests.vcxproj", "{A7F7F22D-667C-4C28-B69E-2EFB9106DD23}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngineLib", "2DEngineLib\2DEngineLib.vcxproj", "{E258C133-1413-4CC2-B0C8-F120F94BCF4F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoAppNativeStatic", "DemoAppNativeStatic\DemoAppNativeStatic.vcxproj", "{50E8CBEB-50DE-4499-A058-7C87FCE77809}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConwayGame", "ConwayGame\ConwayGame.vcxproj", "{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,16 @@ Global
 		{50E8CBEB-50DE-4499-A058-7C87FCE77809}.Release|x64.Build.0 = Release|x64
 		{50E8CBEB-50DE-4499-A058-7C87FCE77809}.Release|x86.ActiveCfg = Release|Win32
 		{50E8CBEB-50DE-4499-A058-7C87FCE77809}.Release|x86.Build.0 = Release|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Debug|x64.ActiveCfg = Debug|x64
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Debug|x64.Build.0 = Debug|x64
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Debug|x86.ActiveCfg = Debug|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Debug|x86.Build.0 = Debug|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Release|x64.ActiveCfg = Release|x64
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Release|x64.Build.0 = Release|x64
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Release|x86.ActiveCfg = Release|Win32
+		{2B0EE695-3B0E-4F1F-870A-FD7013F62F9F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ class Graphics {
 		ID2D1SolidColorBrush* brush;
 		ID2D1SolidColorBrush* strokeBrush;
 		int height, width;
-		bool bStroke;
+		bool bStroke, bFill;
 		float strokeWeight;
 	public:
 		Graphics();
@@ -19,6 +19,7 @@ class Graphics {
 		int getHeight();
 		int getWidth();
 		void noStroke();
+		void noFill();
 		void stroke(float r, float g, float b);
 		bool init(HWND hwnd);
 		template<typename Functor>

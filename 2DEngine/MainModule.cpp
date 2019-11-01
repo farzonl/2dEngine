@@ -3,6 +3,10 @@
 #include "WindowMgr.h"
 #include "ManagedLayer.h"
 
+void WINAPI NoFill() {
+	WindowMgr::noFill();
+}
+
 int WINAPI Width() {
 	return WindowMgr::getWidth();
 }
