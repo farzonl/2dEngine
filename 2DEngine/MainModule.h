@@ -14,4 +14,6 @@ void WINAPI Square(float x, float y, float extent);
 void WINAPI Line(float x1, float y1, float x2, float y2);
 void WINAPI Triangle(float x1, float y1, float x2, float y2, float x3, float y3);
 void WINAPI Quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4);
+int WINAPI Width();
+int WINAPI Height();
 #endif // _MAINMODULE_H_

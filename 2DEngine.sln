@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngineNativeTests", "2DEn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngineLib", "2DEngineLib\2DEngineLib.vcxproj", "{E258C133-1413-4CC2-B0C8-F120F94BCF4F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoAppNative", "DemoAppNative\DemoAppNative.vcxproj", "{50E8CBEB-50DE-4499-A058-7C87FCE77809}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoAppNativeStatic", "DemoAppNativeStatic\DemoAppNativeStatic.vcxproj", "{50E8CBEB-50DE-4499-A058-7C87FCE77809}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

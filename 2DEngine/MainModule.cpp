@@ -3,6 +3,14 @@
 #include "WindowMgr.h"
 #include "ManagedLayer.h"
 
+int WINAPI Width() {
+	return WindowMgr::getWidth();
+}
+
+int WINAPI Height() {
+	return WindowMgr::getHeight();
+}
+
 void WINAPI NoStroke() {
 	WindowMgr::noStroke();
 }

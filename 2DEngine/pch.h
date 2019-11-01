@@ -10,4 +10,7 @@
 // add headers that you want to pre-compile here
 #include "framework.h"
 #include <vector>
+#include <string>
+#include <iostream>
+#include <cstdarg>
 #endif //PCH_H

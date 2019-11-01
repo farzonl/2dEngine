@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="graphics.h" />
+    <ClInclude Include="include\engine.h" />
     <ClInclude Include="MainModule.h" />
     <ClInclude Include="ManagedLayer.h" />
     <ClInclude Include="panel.h" />
