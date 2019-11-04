@@ -1,7 +1,6 @@
 #ifndef __GRAPHICS_H__
 #define __GRAPHICS_H__
 
-#include <Windows.h>
 #include <d2d1.h>
 
 class Graphics {
@@ -28,6 +27,7 @@ class Graphics {
 			f();
 			renderTarget->EndDraw();
 		}
+		void rotate(float degrees);
 		void clear(float r,float g, float b);
 		void setColor(float r, float g, float b);
 		void drawElipse(float x, float y, float width, float height);

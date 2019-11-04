@@ -23,6 +23,10 @@ void WINAPI Stroke(float r, float g, float b) {
 	WindowMgr::stroke(r, g, b);
 }
 
+void WINAPI Rotate(float degrees) {
+	WindowMgr::rotate(degrees);
+}
+
 // extent is the processing word for radius
 void WINAPI Circle(float x, float y, float extent) {
 	WindowMgr::ellipse(x, y, extent, extent);

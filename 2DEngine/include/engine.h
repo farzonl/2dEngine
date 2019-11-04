@@ -22,6 +22,7 @@
 #define circle Circle
 #define height Height
 #define width Width
+#define rotate Rotate
 
 typedef int color;
 typedef bool boolean;
@@ -42,6 +43,7 @@ typedef std::string String;
 #undef  Circle
 #undef  Height
 #undef  Width
+#undef Rotate
 
 extern Draw_Callback draw;
 extern Setup_Callback setup;
@@ -50,7 +52,6 @@ extern KeyPressed_Callback keyPressed;
 
 template<typename  T>
 void matDel(T**  arr, int COL);
-void println(std::string str...);
 void println(const char* fmt...);
 
 template<typename  T>

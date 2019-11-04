@@ -25,6 +25,7 @@ public:
 	static void noStroke();
 	static void stroke(float r, float g, float b);
 	static void noFill();
+	static void rotate(float degrees);
 private:
 	WindowMgr() = delete;
 };

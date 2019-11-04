@@ -85,6 +85,15 @@ void WindowMgr::triangle(float x1, float y1, float x2, float y2, float x3, float
 	instance.graphics.drawTriangle(x1, y1, x2, y2, x3, y3);
 }
 
+void WindowMgr::rotate(float degrees) {
+	auto& instance = Singleton::get();
+	if (!instance.graphicsInited) {
+		instance.functors.push_back([=, &instance] { instance.graphics.rotate(degrees); });
+		return;
+	}
+	instance.graphics.rotate(degrees);
+}
+
 void WindowMgr::line(float x1, float y1, float x2, float y2) {
 	auto& instance = Singleton::get();
 	if (!instance.graphicsInited) {

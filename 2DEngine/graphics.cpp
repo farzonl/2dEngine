@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "graphics.h"
 
-
 Graphics::Graphics() : factory(nullptr),
 					   renderTarget(nullptr), 
 					   brush(nullptr),
@@ -14,15 +13,19 @@ Graphics::Graphics() : factory(nullptr),
 Graphics::~Graphics() {
 	if (factory) {
 		factory->Release();
+		factory = nullptr;
 	}
 	if (renderTarget) {
 		renderTarget->Release();
+		renderTarget = nullptr;
 	}
 	if (brush) {
 		brush->Release();
+		brush = nullptr;
 	}
 	if (strokeBrush) {
 		strokeBrush->Release();
+		strokeBrush = nullptr;
 	}
 }
 int Graphics::getHeight() {
@@ -92,6 +95,14 @@ void Graphics::drawElipse(float x, float y, float width, float height) {
 	if (bFill) {
 		renderTarget->FillEllipse(elipse, brush);
 	}
+}
+
+void Graphics::rotate(float degrees) {
+	renderTarget->SetTransform(
+		D2D1::Matrix3x2F::Rotation(
+			degrees,
+			D2D1::Point2F(width / 2.0f, height / 2.0f))
+	);
 }
 
 void Graphics::drawRect(float x, float y, float width, float height) {
